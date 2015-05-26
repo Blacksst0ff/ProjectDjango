@@ -1,6 +1,6 @@
 {% extends 'recettes/_base.html' %}
 {% load static %}
-{% block titre %} Home {% endblock %}
+{% block titre %} Accueil, gruik ! {% endblock %}
 {% block contenu %}
 
     <!-- HEADER -->
@@ -48,7 +48,12 @@
                             <li><a href="features-monobox.html"><span> Icons</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="blog.html">Recettes<span class="subheader">Viens déguster</span></a></li>
+                    <li><a href="blog.html">Recettes<span class="subheader">Viens déguster</span></a>
+                         <ul>
+                            <li><a href="{% url 'recettes:consulter'%}"><span> Consulter </span></a></li>
+                            <li><a href="gallery-3.html"><span> Ajouter </span></a></li>
+                        </ul>
+                    </li>
                     <li><a href="portfolio.html">Portfolio <span class="subheader">Showcase work</span></a></li>
                     <li><a href="gallery.html">Gallery<span class="subheader">Featured work</span></a>
                         <ul>

@@ -1,0 +1,11 @@
+{% extends 'recettes/_base.html' %}
+{% block titre %}Consultation des recettes{% endblock %}
+{% block contenu %}
+    <h3>Voici les recettes disponibles, bon ap' !</h3>
+
+    <ul>
+    {% for r in recette %}
+       <li>{{ r.titre }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
