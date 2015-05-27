@@ -1,19 +1,79 @@
 {% extends 'recettes/_base.html' %}
-{% block titre %}SSe Connecter{% endblock %}
+{% block titre %}Se Connecter{% endblock %}
 
-{% block content %}
+{% block contenu %}
 
-    {%  if form.errors %}
-        <p class=""error">Désolé, mais les données utilisateur sont incorrect !</p>
-    {%  endif %}
+    <!-- MAIN -->
+			<div id="main">
+				<!-- wrapper-main -->
+				<div class="wrapper">
 
-    <form action="/auth/" method="post">{% csrf_token %}
-        <label for="username">Nom utilisateur:</label>
-        <input type="text" name="username" value="" id="username">
-        <label for="password">Mot de Passe:</label>
-        <input type="password" name="password" value="" id="password">
+					<!-- content -->
+					<div id="content">
 
-        <input type="submit" value="Se Connecter">
-    </form>
+						<!-- title -->
+						<div id="page-title">
+							<span class="title">Authentification</span>
+							<span class="subtitle">Devenez membre pour profiter de nos recettes.</span>
+						</div>
+						<!-- ENDS title -->
+
+						<!-- column (left)-->
+						<div class="one-column">
+							<!-- form -->
+							<h2>Se Connecter</h2>
+							<form id="authForm" action="/auth/" method="post">{% csrf_token %}
+								<fieldset>
+									<div class="form-group">
+										<label>Nom d'utilisateur</label>
+										<input name="username" class="form-control" id="username" type="text" title="Entrer votre nom d'utilisateur" />
+									</div>
+									<div class="form-group">
+										<label>Mot de passe</label>
+										<input name="password" class="form-control"  id="password" type="password" title="Entrer votre mot de passe" />
+									</div>
+
+									<p><input type="submit" value="Connexion" name="submit" id="submit" class="btn btn-default"/></p>
+								</fieldset>
+                                {%  if form.errors %}
+                                    <p id="error" class="warning">Désolé, mais les données utilisateur sont incorrect !</p>
+                                {%  endif %}
+							</form>
+							<!-- ENDS form -->
+						</div>
+						<!-- ENDS column -->
+
+						<!-- column (right)-->
+						<div class="one-column">
+							<!-- form -->
+							<h2>S'enregister</h2>
+							<form id="registerForm" action="/register/" method="post">{% csrf_token %}
+								<fieldset>
+									<div>
+										<label>Name</label>
+										<input name="name"  id="name" type="text" class="form-poshytip" title="Enter your full name" />
+									</div>
+									<div>
+										<label>Email</label>
+										<input name="email"  id="email" type="text" class="form-poshytip" title="Enter your email address" />
+									</div>
+
+									<p><input type="submit" value="Créer Compte" name="submit" id="submit" /></p>
+								</fieldset>
+								<p id="error" class="warning">Message</p>
+							</form>
+							<!-- ENDS form -->
+						</div>
+						<!-- ENDS column -->
+
+					</div>
+					<!-- ENDS content -->
+
+				</div>
+				<!-- ENDS wrapper-main -->
+			</div>
+			<!-- ENDS MAIN -->
 
 {% endblock %}
+
+

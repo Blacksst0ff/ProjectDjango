@@ -1307,7 +1307,17 @@ h6{ font-size: 20px; }
 }
 
 
+div#connexion a {
+    display: inline-block;
+    font-size: 13px;
+    color: #bac0c9;
+    text-decoration: none;
+    text-shadow: 0px -2px rgba(0, 0, 0, .8);
+}
 
+div#connexion:hover>a{
+	color: #fff;
+}
 
 
 

@@ -19,7 +19,7 @@ def consulter(request):
 def login(request):
     contexte = {}
     contexte.update(csrf(request))
-    return render_to_response('login.html', contexte)
+    return render_to_response('recettes/login.html', contexte)
 
 def auth_view(request):
     username = request.POST.get('username', '')
@@ -30,7 +30,10 @@ def auth_view(request):
         auth.login(request, user)
         return HttpResponseRedirect('/loggedin')
     else:
-        return HttpResponseRedirect('/invalid')
+        form ={
+            'errors': "Les Données sont invalides"
+        }
+        return render(request, 'recettes/login.html', form)
 
 def loggedin(request):
     return render_to_response('loggedin.html', {'full_name': request.user.username})
@@ -40,4 +43,4 @@ def invalid_login(request):
 
 def logout(request):
     auth.logout(request)
-    return render_to_response('logout.html')
+    return render_to_response('recettes/index.html')
