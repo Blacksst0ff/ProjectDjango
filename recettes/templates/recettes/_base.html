@@ -84,7 +84,7 @@
     <div id="header">
         <!-- wrapper-header -->
         <div class="wrapper">
-            <a href={% url 'recettes:index'%}><img id="logo" src="{% static 'recettes/img/logo.png' %}" alt="Nova"/></a>
+            <a href={% url 'recettes:index' %}><img id="logo" src="{% static 'recettes/img/logo.png' %}" alt="Nova"/></a>
             <!-- search -->
             <div class="top-search">
                 <form method="get" id="searchform" action="#">
@@ -95,9 +95,9 @@
                     </div>
                     <div id="connexion">
                             {% if user.is_authenticated %}
-                               <a href="#">Mon Compte</a>   <a href="{% url 'recettes:logout'%}">Se Déconnecter</a>
+                               <a href="#">Bienvenue {{ user.username }}</a> <a href="#">/</a>  <a href="/logout">Se Déconnecter</a>
                             {% else %}
-                                <a href="{% url 'recettes:login'%}">Se Connecter / Créer un Compte</a>
+                                <a href="/login">Se Connecter</a> <a href="#">/</a> <a href="/register"> Créer un Compte</a>
                             {% endif %}
                     </div>
 

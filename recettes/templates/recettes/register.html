@@ -23,28 +23,21 @@
 							<!-- form -->
                             {% if form.errors %}
                                 <div class="one-half">
-                                    <p class="error-box">Nom d'utilisateur ou Mot de passe incorrect</p>
+                                    <p class="error-box">Le formulaire est invalide, réessayé !</p>
                                 </div>
                             {% endif %}
-							<h2>Se Connecter</h2>
+							<h2>Créer un Compte</h2>
 
 							<form method="post" class="form" action="">
 
                                 {% csrf_token %}
 
                                 <fieldset>
-									<div>
-										<label>Utilisateur:</label>
-										{{ form.username }}
-									</div>
-									<div>
-										<label>Mot de passe:</label>
-										{{ form.password }}
-									</div>
+
+                                    {{ form.as_p }}
 
 									<p>
-                                        <input type="submit" class="btn btn-primary" value="Connexion" />
-                                        <input type="hidden" name="next" value="{{ next }}" />
+                                        <input type="submit" class="btn btn-primary" value="Créer Compte" />
                                     </p>
 								</fieldset>
                             </form>

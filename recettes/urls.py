@@ -1,14 +1,14 @@
 from django.conf.urls import patterns, include, url
-from .views import index, consulter, login, auth_view, logout, loggedin, invalid_login
+from .views import index, consulter, logout, register
 
 urlpatterns = patterns('',
                        url(r'^$', index, name='index'),
                        url(r'^consulter/$', consulter, name='consulter'),
 
                        # USER PART
-                       url(r'^login/$', login, name='login'),
-                       url(r'^auth/$', auth_view, name='auth_view'),
+                       url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'recettes/login.html'}),
                        url(r'^logout/$', logout, name='logout'),
-                       url(r'^loggedin/$', loggedin, name='loggedin'),
-                       url(r'^invalid/$', invalid_login, name='invalid_login'),
-)
+
+                       url(r'^logged_in/$', 'recettes.views.logged_in'),
+                       url(r'^register/$', register, name='register'),
+                    )
