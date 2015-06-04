@@ -7,6 +7,7 @@ from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
+from recettes.forms import RecetteForm
 from django.core.context_processors import csrf
 
 
@@ -14,12 +15,33 @@ def index(request):
     return render(request, 'recettes/index.html')
 
 
+# Partie Recette
 def consulter(request):
     contexte = {
         'recette': Recette.objects.all(),
     }
     return render(request, 'recettes/consulter.html', contexte)
 
+
+def addRecette(request):
+
+    if request.method == 'POST':
+        form = RecetteForm(request.POST)
+
+        if form.is_valid():
+            type_recette = form.cleaned_data['type_recette']
+            titre = form.cleaned_data['titre']
+            difficulte = form.cleaned_data['difficulte']
+            cout = form.cleaned_data['cout']
+            photo = form.cleaned_data['photo']
+            temps_preparation = form.cleaned_data['temps_preparation']
+            temps_cuisson = form.cleaned_data['temps_cuisson']
+            temps_repos = form.cleaned_data['temps_repos']
+    else:
+            form = RecetteForm()
+    return render(request, 'recettes/addRecette.html', locals())
+
+# Part Utilisateur
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -34,25 +56,6 @@ def register(request):
 @login_required
 def logged_in(request):
     return render_to_response('recettes/index.html', context_instance=RequestContext(request))
-
-
-# def login(request):
-#
-#   contexte = {}
-#    contexte.update(csrf(request))
-#    return render_to_response('recettes/login.html', contexte)
-
-
-#def auth_view(request):
-#    username = request.POST.get('username', '')
-#    password = request.POST.get('password', '')
-#    user = auth.authenticate(username=username, password=password)
-
-#    if user is not None:
-#        auth.login(request, user)
-#        return HttpResponseRedirect('/')
-#    else:
-#        return HttpResponseRedirect('/login/?error=true')
 
 
 def logout(request):

@@ -1,0 +1,60 @@
+{% extends 'recettes/_base.html' %}
+{% block titre %}Ajouter Recette{% endblock %}
+
+{% block contenu %}
+
+    <!-- MAIN -->
+			<div id="main">
+				<!-- wrapper-main -->
+				<div class="wrapper">
+
+					<!-- content -->
+					<div id="content">
+
+						<!-- title -->
+						<div id="page-title">
+							<span class="title">Ajouter une recette</span>
+							<span class="subtitle">Participez au plus grand annuaire culinaire.</span>
+						</div>
+						<!-- ENDS title -->
+
+						<!-- column (left)-->
+						<div class="one-column">
+							<!-- form -->
+                            {% if form.errors %}
+                                <div class="one-half">
+                                    <p class="error-box">Le formulaire est invalide, réessayé !</p>
+                                </div>
+                            {% endif %}
+							<h2>Créer une Recette</h2>
+
+							<form method="post" class="form" action="">
+
+                                {% csrf_token %}
+
+                                <fieldset>
+
+                                    {{ form.as_p }}
+
+									<p>
+                                        <input type="submit" class="btn btn-primary" value="Créer Recette" />
+                                    </p>
+								</fieldset>
+                            </form>
+							<!-- ENDS form -->
+						</div>
+						<!-- ENDS column -->
+
+
+
+					</div>
+					<!-- ENDS content -->
+
+				</div>
+				<!-- ENDS wrapper-main -->
+			</div>
+			<!-- ENDS MAIN -->
+
+{% endblock %}
+
+
