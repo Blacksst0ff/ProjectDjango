@@ -23,7 +23,7 @@ def consulter(request):
     return render(request, 'recettes/consulter.html', contexte)
 
 
-def addRecette(request):
+def addrecette(request):
 
     if request.method == 'POST':
         form = RecetteForm(request.POST)
@@ -37,15 +37,18 @@ def addRecette(request):
             temps_preparation = form.cleaned_data['temps_preparation']
             temps_cuisson = form.cleaned_data['temps_cuisson']
             temps_repos = form.cleaned_data['temps_repos']
+            new_recette = form.save()
     else:
             form = RecetteForm()
     return render(request, 'recettes/addRecette.html', locals())
+
 
 # Part Utilisateur
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            username = form.cleaned_data['username']
             new_user = form.save()
             return HttpResponseRedirect('/')
     else:

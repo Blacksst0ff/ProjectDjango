@@ -1,11 +1,117 @@
 {% extends 'recettes/_base.html' %}
 {% block titre %}Consultation des recettes{% endblock %}
 {% block contenu %}
-    <h3>Voici les recettes disponibles, bon ap' !</h3>
 
-    <ul>
-    {% for r in recette %}
-       <li>{{ r.titre }}</li>
-    {% endfor %}
-    </ul>
+    <!-- MAIN -->
+			<div id="main">
+				<!-- wrapper-main -->
+				<div class="wrapper">
+
+
+					<!-- content -->
+					<div id="content">
+
+						<!-- title -->
+						<div id="page-title">
+							<span class="title">Les recettes</span>
+							<span class="subtitle">Consulter toutes les recettes disponibles sur notre site!</span>
+						</div>
+						<!-- ENDS title -->
+
+						<!-- Posts -->
+						<div id="posts">
+                             {% for r in recette %}
+
+							<!-- post -->
+							<div class="post">
+								<h1><a href="#">{{ r.titre }}</a></h1>
+								<div class="n-comments">{{ r.type_recette }}</div>
+
+								<!-- shadow -->
+								<div class="thumb-shadow">
+
+									<!-- post-thumb -->
+									<div class="post-thumbnail">
+										<!-- meta -->
+										<ul class="meta">
+											<li><strong>Posted on</strong> Dec 27th 2011 </li>
+											<li><strong>By</strong> <a href="#">Ansimuz</a></li>
+											<li> <strong>Posted in</strong>
+												<div class="meta-tags">
+													<a href="#">Webdesign</a>
+													<a href="#">Code</a>
+													<a href="#">Photo</a>
+												</div>
+											</li>
+										</ul>
+										<!-- ENDS meta -->
+										<a href="single.html" class="cover"><img src="img/dummies/596x270.gif"  alt="Feature image" /></a>
+									</div>
+									<!-- ENDS post-thumb -->
+
+									<div class="the-excerpt">
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+									</div>
+									<a href="single.html" class="read-more link-button"><span>Read more</span></a>
+
+								</div>
+								<!-- ENDS shadow -->
+							</div>
+							<!-- ENDS post -->
+                            {% endfor %}
+
+						</div>
+						<!-- ENDS Posts -->
+
+
+						<!-- sidebar -->
+						<ul id="sidebar">
+							<!-- init sidebar -->
+							<li>
+								<h6>Categories</h6>
+								<ul>
+									<li class="cat-item"><a href="#" title="View all posts">Apéro</a></li>
+									<li class="cat-item"><a href="#" title="View all posts">Entrée</a></li>
+									<li class="cat-item"><a href="#" title="View all posts">Plat</a></li>
+									<li class="cat-item"><a href="#" title="View all posts">Dessert</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<h6>Difficultées</h6>
+								<ul>
+									<li class="cat-item"><a href="#" title="View all posts">Très Facile</a></li>
+									<li class="cat-item"><a href="#" title="View all posts">Facile</a></li>
+									<li class="cat-item"><a href="#" title="View all posts">Normal</a></li>
+									<li class="cat-item"><a href="#" title="View all posts">Difficile</a></li>
+								</ul>
+							</li>
+							<!-- ENDS init sidebar -->
+						</ul>
+						<!-- ENDS sidebar -->
+
+						<!-- pagination -->
+						<div class="clear"></div>
+						<ul class='pager'>
+							<li class='first-page'><a href='#'>&laquo;</a></li>
+							<li><a href='#' >&lsaquo;</a></li>
+							<li><a href='#' >2</a></li>
+							<li><a href='#' >3</a></li>
+							<li class='active'><a href='#'>4</a></li>
+							<li><a href='#' >5</a></li>
+							<li><a href='#' >6</a></li>
+							<li><a href='#' >&rsaquo;</a></li>
+							<li class='last-page'><a href='#'>&raquo;</a></li>
+						</ul>
+						<!-- ENDS pagination -->
+
+					</div>
+					<!-- ENDS content -->
+
+				</div>
+				<!-- ENDS wrapper-main -->
+			</div>
+			<!-- ENDS MAIN -->
+
+
 {% endblock %}
